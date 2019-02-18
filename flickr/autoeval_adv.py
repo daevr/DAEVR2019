@@ -81,7 +81,7 @@ def autotrain():
     gen_params = [v for v in vars if 'coder' in v.name]
     disc_params = [v for v in vars if 'disc' in v.name]
     gen_train_op = tf.train.AdamOptimizer(learning_rate=1e-4, beta1=0.5, beta2=0.9).minimize(
-        consistency_loss + gen_cost + 0 * var_loss, var_list=gen_params)
+        consistency_loss + gen_cost + 100 * var_loss, var_list=gen_params)
 
     # disc_train_op = tf.train.AdamOptimizer(learning_rate=1e-4, beta1=0.5, beta2=0.9).minimize(disc_cost, var_list=disc_params)
 
